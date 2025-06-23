@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>话剧门票生成器</title>
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .ticket-preview {
+            background: white;
+            border-radius: 10px;
+            margin: 30px auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ticket-preview::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ffd700, #b21f1f, #1a2a6c);
+        }
+        
+        .theater-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #b21f1f;
+            text-align: center;
+        }
+        
+        .ticket-details {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        
+        .detail-item {
+            text-align: center;
+        }
+        
+        .detail-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .detail-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a2a6c;
+        }
+        
+        .btc-price {
+            color: #f7931a;
+            font-size: 1.5rem;
+        }
+        
+        .dashed-border {
+            border: 2px dashed #1a2a6c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .dashed-border::after {
+            content: "沿虚线裁剪";
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        .terms-title {
+            text-align: center;
+            margin: 20px 0 10px;
+            color: #1a2a6c;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .terms {
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+        
+        .terms li {
+            margin-bottom: 8px;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #ffd700, #ff8c00);
+            color: #1a2a6c;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #ff8c00, #ffd700);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .ticket-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>话剧门票生成器</h1>
+        
+        <p class="description">
+            点击下方按钮，即可生成包含三个票根的话剧门票Word文档。<br>
+            门票包含演出信息及使用说明，每个票根都有虚线边框以便裁剪使用。
+        </p>
+        
+        <div class="ticket-preview">
+            <div class="theater-title">话剧：黄睿涵大义灭亲</div>
+            
+            <div class="ticket-details">
+                <div class="detail-item">
+                    <div class="detail-label">票价</div>
+                    <div class="detail-value btc-price">20 BTC</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">时间</div>
+                    <div class="detail-value">2023年6月23日</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">座位</div>
+                    <div class="detail-value">VIP区</div>
+                </div>
+            </div>
+            
+            <div class="dashed-border">
+                <p>票根 - 请沿虚线裁剪</p>
+            </div>
+            
+            <div class="terms-title">使用注意事项</div>
+            <ul class="terms">
+                <li>本门票为电子凭证，请打印后使用</li>
+                <li>入场时请出示有效身份证件及门票</li>
+                <li>演出开始前30分钟开始入场</li>
+                <li>演出期间请关闭手机或调至静音模式</li>
+                <li>禁止携带食品、饮料及摄影设备入场</li>
+                <li>门票一旦售出，概不退换</li>
+            </ul>
+        </div>
+        
+        <button class="btn" id="generateBtn">生成门票Word文档</button>
+        
+        <p class="footer">
+            生成的门票包含三个相同票根，每个都有虚线边框，可直接打印裁剪使用
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', generateWordDocument);
+        
+        async function generateWordDocument() {
+            const { Document, Paragraph, TextRun, Table, TableRow, TableCell, BorderStyle, HeadingLevel, AlignmentType, VerticalAlign } = docx;
+            
+            // 创建文档
+            const doc = new Document({
+                sections: [{
+                    properties: {
+                        page: {
+                            margin: {
+                                top: 1000,
+                                bottom: 1000,
+                                left: 1000,
+                                right: 1000
+                            }
+                        }
+                    },
+                    children: [
+                        // 标题
+                        new Paragraph({
+                            text: "话剧门票 - 黄睿涵大义灭亲",
+                            heading: HeadingLevel.HEADING_1,
+                            alignment: AlignmentType.CENTER,
+                            spacing: {
+                                after: 400
+                            }
+                        }),
+                        
+                        // 副标题
+                        new Paragraph({
+                            text: "请沿虚线裁剪以下票根",
+                            alignment: AlignmentType.CENTER,
+                            spacing: {
+                                after: 600
+                            }
+                        })
+                    ]
+                }]
+            });
+            
+            // 创建三个票根
+            for (let i = 0; i < 3; i++) {
+                // 创建票根表格
+                const ticketTable = new Table({
+                    width: {
+                        size: 100,
+                        type: docx.WidthType.PERCENTAGE
+                    },
+                    borders: {
+                        top: { style: BorderStyle.DASHED, size: 4, color: "1a2a6c" },
+                        bottom: { style: BorderStyle.DASHED, size: 4, color: "1a2a6c" },
+                        left: { style: BorderStyle.DASHED, size: 4, color: "1a2a6c" },
+                        right: { style: BorderStyle.DASHED, size: 4, color: "1a2a6c" }
+                    },
+                    rows: [
+                        // 标题行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        new Paragraph({
+                                            text: "话剧：黄睿涵大义灭亲",
+                                            alignment: AlignmentType.CENTER,
+                                            heading: HeadingLevel.HEADING_2
+                                        })
+                                    ],
+                                    verticalAlign: VerticalAlign.CENTER,
+                                    shading: {
+                                        fill: "FFD700",
+                                        type: docx.ShadingType.CLEAR
+                                    }
+                                })
+                            ]
+                        }),
+                        
+                        // 内容行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        // 票价和时间信息
+                                        new Paragraph({
+                                            children: [
+                                                new TextRun({
+                                                    text: "票价：",
+                                                    bold: true
+                                                }),
+                                                new TextRun({
+                                                    text: "20 BTC",
+                                                    color: "F7931A",
+                                                    bold: true
+                                                }),
+                                                new TextRun({
+                                                    text: "\t时间：",
+                                                    bold: true
+                                                }),
+                                                new TextRun({
+                                                    text: "2023年6月23日 19:30",
+                                                    bold: true
+                                                })
+                                            ],
+                                            alignment: AlignmentType.CENTER,
+                                            spacing: {
+                                                after: 200
+                                            }
+                                        }),
+                                        
+                                        // 座位信息
+                                        new Paragraph({
+                                            text: "座位：VIP区 第" + (i+1) + "排 1号",
+                                            alignment: AlignmentType.CENTER,
+                                            spacing: {
+                                                after: 300
+                                            }
+                                        }),
+                                        
+                                        // 分隔线
+                                        new Paragraph({
+                                            text: "——————————————————————",
+                                            alignment: AlignmentType.CENTER,
+                                            spacing: {
+                                                after: 300
+                                            }
+                                        }),
+                                        
+                                        // 使用说明标题
+                                        new Paragraph({
+                                            text: "使用注意事项：",
+                                            alignment: AlignmentType.LEFT,
+                                            bold: true,
+                                            spacing: {
+                                                after: 150
+                                            }
+                                        }),
+                                        
+                                        // 使用说明内容
+                                        new Paragraph({
+                                            text: "1. 本门票为电子凭证，请打印后使用",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "2. 入场时请出示有效身份证件及门票",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "3. 演出开始前30分钟开始入场",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "4. 演出期间请关闭手机或调至静音模式",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "5. 禁止携带食品、饮料及摄影设备入场",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "6. 门票一旦售出，概不退换",
+                                            alignment: AlignmentType.LEFT
+                                        })
+                                    ],
+                                    verticalAlign: VerticalAlign.CENTER,
+                                    margins: {
+                                        top: 200,
+                                        bottom: 200,
+                                        left: 200,
+                                        right: 200
+                                    }
+                                })
+                            ]
+                        }),
+                        
+                        // 裁剪提示行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        new Paragraph({
+                                            text: "请沿虚线裁剪 ↑",
+                                            alignment: AlignmentType.CENTER,
+                                            color: "1a2a6c",
+                                            italics: true
+                                        })
+                                    ],
+                                    shading: {
+                                        fill: "f0f0f0",
+                                        type: docx.ShadingType.CLEAR
+                                    }
+                                })
+                            ]
+                        })
+                    ]
+                });
+                
+                // 将票根添加到文档
+                doc.addSection({
+                    children: [ticketTable],
+                    properties: {}
+                });
+                
+                // 在票根之间添加间距（最后一个不添加）
+                if (i < 2) {
+                    doc.addSection({
+                        children: [
+                            new Paragraph({
+                                text: "",
+                                spacing: {
+                                    after: 600
+                                }
+                            })
+                        ],
+                        properties: {}
+                    });
+                }
+            }
+            
+            // 生成文档并下载
+            const blob = await docx.Packer.toBlob(doc);
+            saveAs(blob, "话剧门票-黄睿涵大义灭亲.docx");
+        }
+    </script>
+</body>
+</html>

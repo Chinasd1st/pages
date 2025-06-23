@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简洁黄睿涵导航页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .nav-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+        
+        .nav-card:nth-child(1)::before {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+        
+        .nav-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #9b59b6, #e74c3c);
+        }
+
+        .nav-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #59b69c, #5981b6);
+        }
+
+        .nav-card:nth-child(4)::before {
+            background: linear-gradient(90deg, #b68b59, #abe73c);
+        }
+        
+        .nav-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .nav-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>黄睿涵导航页</h1>
+            <p class="subtitle">精心设计的导航界面，提供清晰简洁的页面访问路径，让您快速找到所需的黄睿涵相关内容。</p>
+        </header>
+        
+        <div class="nav-grid">
+            <a href="pages/HuangRuihanBTCfine.html" class="nav-card">
+                <div class="icon">🪙</div>
+                <h2>黄睿涵罚款事件</h2>
+                <p>看了太多黄睿涵视频终被罚款！</p>
+            </a>
+            
+            <a href="pages/HuangRuihanPornConcert.html" class="nav-card">
+                <div class="icon">🎵</div>
+                <h2>黄睿涵色情演唱会售票页</h2>
+                <p>黄睿涵的最新演唱会收票页面</p>
+            </a>
+
+            <a href="pages/HuangRuihanPhonePressConference.html" class="nav-card">
+                <div class="icon">📱</div>
+                <h2>黄睿涵手机发布会门票生成器</h2>
+                <p>最新尖端科技黄睿涵手机即将震撼上市！</p>
+            </a>
+
+            <a href="pages/HuangRuihanDrama.html" class="nav-card">
+                <div class="icon">🎭</div>
+                <h2>黄睿涵大义灭亲话剧门票生成器</h2>
+                <p>折射社会现状、屡获国际奖项的震撼大剧《黄睿涵大义灭亲》即将公演！</p>
+            </a>
+        </div>
+        
+        <footer>
+            <p>黄睿涵导航页 © 2025 | 黄睿涵我是你妈妈</p>
+        </footer>
+    </div>
+</body>
+</html>
+
