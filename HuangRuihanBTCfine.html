@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统锁定 - 严重安全警报</title>
+    <style>
+        :root {
+            --primary-color: #ff2d2d;
+            --background-color: #000;
+            --text-color: #fff;
+            --container-bg: #1a1a1a;
+            --button-bg: #4caf50;
+            --button-hover-bg: #45a049;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Microsoft YaHei', '黑体', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .lock-container {
+            width: 90%;
+            max-width: 800px;
+            background-color: var(--container-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(255, 45, 45, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .header-icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-right: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin: 0;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .law-violation {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .fine-amount {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffc107;
+            margin: 30px 0;
+            letter-spacing: 2px;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        #timer {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .payment-button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+        }
+
+        .payment-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .prank-reveal {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        .prank-reveal h2 {
+            font-size: 3em;
+            color: #4caf50;
+        }
+
+        .prank-reveal p {
+            font-size: 1.5em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="lock-screen">
+        <div class="lock-container">
+            <div class="header">
+                <span class="header-icon">⚠️</span>
+                <h1>您的电脑已被锁定</h1>
+            </div>
+            <div class="content">
+                <p>经网络安全中心监测，您的设备因存在违规操作，已触发国家网络安全保护机制。</p>
+                <div class="law-violation">
+                    <p><strong>违规原因：</strong>多次观看 “<strong>黄睿涵</strong>” 相关视频。</p>
+                    <p><strong>违反条款：</strong>《中华人民共和国网络精神文明建设法》第123条第45款之规定。</p>
+                </div>
+                <p>您的所有个人数据，包括文档、照片和应用程序已被加密。为恢复您的电脑访问权限，您必须支付罚款。</p>
+                <p class="fine-amount">罚款金额：฿ 200 比特币</p>
+                <p>如果您未在规定时间内支付罚款，您的所有电脑资料将被<strong>永久删除</strong>，且无法恢复。</p>
+                <div class="countdown">
+                    剩余时间：<span id="timer">23:59:59</span>
+                </div>
+                <button class="payment-button" id="pay-button">支付罚款以解锁</button>
+            </div>
+            <div class="footer">
+                <p>案件编号: CN-20250623-77895</p>
+                <p>请勿尝试重启或关闭计算机，否则将立即触发数据销毁程序。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="prank-reveal" id="prank-message">
+        <h2>逗你玩呢！</h2>
+        <p>您的电脑安全得很，资料也完好无损！</p>
+        <p>只是想提醒您，要雨露均沾，不要只看黄睿涵哦！</p>
+        <p>（本页面仅供娱乐）</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const payButton = document.getElementById('pay-button');
+            const lockScreen = document.getElementById('lock-screen');
+            const prankMessage = document.getElementById('prank-message');
+            const timerDisplay = document.getElementById('timer');
+
+            // 倒计时功能
+            let duration = 24 * 60 * 60; // 24 hours in seconds
+            const timerInterval = setInterval(() => {
+                duration--;
+                if (duration < 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+                let hours = Math.floor(duration / 3600);
+                let minutes = Math.floor((duration % 3600) / 60);
+                let seconds = duration % 60;
+
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+            }, 1000);
+
+            // 点击按钮后的行为
+            payButton.addEventListener('click', function() {
+                lockScreen.style.opacity = '0';
+                setTimeout(() => {
+                    lockScreen.style.display = 'none';
+                    prankMessage.style.display = 'block';
+                }, 1000);
+            });
+
+            // 防止用户通过按键关闭
+            document.addEventListener('keydown', function(e) {
+                if (lockScreen.style.display !== 'none') {
+                    e.preventDefault();
+                    alert('警告：检测到非法操作！系统已加强锁定。');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

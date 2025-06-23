@@ -1,0 +1,1238 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄睿涵色情演唱会 - 限时抢购！</title>
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script><style>body { margin: 0; }</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff0000, #ff6b00, #ff0000);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            width: 95%;
+            max-width: 1000px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border: 8px dashed #ffd700;
+        }
+        
+        .sale-banner {
+            position: absolute;
+            top: 30px;
+            right: -60px;
+            background: #ff0000;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.8rem;
+            padding: 15px 70px;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin: 30px 0 15px;
+            color: #ff0000;
+            text-shadow: 3px 3px 0 #ffd700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #000;
+            text-shadow: 2px 2px 0 #ffd700;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: #ffd700;
+            color: #ff0000;
+            font-size: 3.5rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 8px 0 #cc0000;
+            border: 5px solid #fff;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: #ff0000;
+            color: #ffd700;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin: 10px 0 30px;
+            transform: rotate(-5deg);
+            border: 3px dashed #ffd700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .limited-offer {
+            background: #000;
+            color: #ffd700;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 20px #ff0000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #ff0000; }
+            50% { box-shadow: 0 0 40px #ff6b00; }
+            100% { box-shadow: 0 0 20px #ff0000; }
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: #ff6b00;
+            border-radius: 15px;
+            padding: 25px;
+            width: 220px;
+            text-align: center;
+            border: 5px solid #ffd700;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .feature-card::before {
+            content: "!";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            transform: rotate(20deg);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #000;
+        }
+        
+        .feature-desc {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .ticket-preview {
+            background: linear-gradient(135deg, #ff0000, #ff6b00);
+            border-radius: 15px;
+            margin: 40px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #ffd700;
+            text-shadow: 1px 1px 0 #000;
+        }
+        
+        .ticket-preview::before {
+            content: "VIP";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .event-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #ffd700;
+            text-align: center;
+            text-shadow: 2px 2px 0 #000;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .ticket-details {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px dashed #ffd700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-item {
+            text-align: center;
+        }
+        
+        .detail-label {
+            font-size: 1.1rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .detail-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .dashed-border {
+            border: 3px dashed #ffd700;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .dashed-border::after {
+            content: "沿虚线裁剪";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff6b00;
+            padding: 5px 20px;
+            color: #ffd700;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            border: 2px solid #ffd700;
+        }
+        
+        .terms-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 0 #000;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .terms {
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 0 20px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+        }
+        
+        .terms li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .terms li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-size: 1.5rem;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff0000, #ff6b00);
+            color: #ffd700;
+            border: none;
+            border-radius: 50px;
+            padding: 20px 60px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 0 #cc0000;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 2px 2px 0 #000;
+            border: 5px solid #ffd700;
+            letter-spacing: 2px;
+        }
+        
+        .btn:hover {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #cc0000;
+        }
+        
+        .btn:active {
+            transform: translateY(10px);
+            box-shadow: none;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #000;
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #ffd700;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .countdown-item {
+            background: #000;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 100px;
+            text-align: center;
+            border: 3px solid #ffd700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff0000;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff6b00;
+        }
+        
+        .countdown-label {
+            font-size: 1.1rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        .sale-sticker {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.8rem;
+            padding: 10px 40px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid #ff0000;
+            z-index: 3;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .price-tag {
+                font-size: 2.5rem;
+                padding: 10px 25px;
+            }
+            
+            .ticket-details {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-card {
+                width: 90%;
+            }
+            
+            .btn {
+                padding: 15px 40px;
+                font-size: 1.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 15px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 270px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 50% auto !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+</style></head>
+<body>
+    <div class="container">
+        <div class="sale-banner">亏本大甩卖</div>
+        <div class="sale-sticker">仅限今日！</div>
+        
+        <h1>黄睿涵色情演唱会</h1>
+        <div class="subtitle">感官盛宴 · 颠覆想象 · 限量抢购</div>
+        
+        <div class="original-price">原价：¥9999</div>
+        <div class="price-tag">惊爆价：¥9.9</div>
+        <div class="discount-badge">省去99.9%！</div>
+        
+        <div class="limited-offer">
+            <i class="fas fa-exclamation-triangle"></i> 前100名购票者赠送签名写真集 + 后台通行证！
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-label">天</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">23</div>
+                <div class="countdown-label">小时</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">59</div>
+                <div class="countdown-label">分钟</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">19</div>
+                <div class="countdown-label">秒</div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                <div class="feature-title">热辣舞台</div>
+                <div class="feature-desc">360°环绕式沉浸体验</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-star"></i></div>
+                <div class="feature-title">明星阵容</div>
+                <div class="feature-desc">神秘嘉宾倾情助阵</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-gift"></i></div>
+                <div class="feature-title">超值赠品</div>
+                <div class="feature-desc">限量版签名周边</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-ticket-alt"></i></div>
+                <div class="feature-title">VIP特权</div>
+                <div class="feature-desc">后台见面会+合影</div>
+            </div>
+        </div>
+        
+        <div class="ticket-preview">
+            <div class="event-title">黄睿涵色情演唱会 VIP门票</div>
+            
+            <div class="ticket-details">
+                <div class="detail-item">
+                    <div class="detail-label">惊爆价</div>
+                    <div class="detail-value">¥9.9</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">时间</div>
+                    <div class="detail-value">2025年7月15日</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">地点</div>
+                    <div class="detail-value">星光大剧院</div>
+                </div>
+            </div>
+            
+            <div class="dashed-border">
+                <p style="font-size: 1.5rem; font-weight: bold;">VIP通行证 - 请沿虚线裁剪</p>
+            </div>
+            
+            <div class="terms-title">超值特权说明</div>
+            <ul class="terms">
+                <li>前100名购票者获赠签名写真集</li>
+                <li>凭票可参与演出后VIP见面会</li>
+                <li>赠送限量版演唱会纪念T恤一件</li>
+                <li>免费享用VIP休息区饮品小吃</li>
+                <li>优先入场，最佳观赏位置</li>
+                <li>参与后台探班活动（限前50名）</li>
+                <li>获得与黄睿涵合影机会（限前30名）</li>
+            </ul>
+        </div>
+        
+        <button class="btn" id="generateBtn">
+            <i class="fas fa-bolt"></i> 立即抢购
+        </button>
+        
+        <p class="footer">
+            生成的门票包含三个相同VIP票根，可直接打印裁剪使用！<br>
+            注意：本活动最终解释权归主办方所有，门票数量有限，售完即止！
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', generateWordDocument);
+        
+        // 设置24小时倒计时
+        const countdownDate = new Date();
+        countdownDate.setHours(countdownDate.getHours() + 24);
+        
+        function updateCountdown() {
+            const now = new Date();
+            const diff = countdownDate - now;
+            
+            if (diff <= 0) {
+                document.querySelector('.countdown').innerHTML = '<div class="limited-offer">抢购已结束！</div>';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        async function generateWordDocument() {
+            const { Document, Paragraph, TextRun, Table, TableRow, TableCell, BorderStyle, HeadingLevel, AlignmentType, VerticalAlign } = docx;
+            
+            // 创建文档
+            const doc = new Document({
+                sections: [{
+                    properties: {
+                        page: {
+                            margin: {
+                                top: 1000,
+                                bottom: 1000,
+                                left: 1000,
+                                right: 1000
+                            }
+                        }
+                    },
+                    children: [
+                        // 标题
+                        new Paragraph({
+                            text: "黄睿涵色情演唱会 VIP门票",
+                            heading: HeadingLevel.HEADING_1,
+                            alignment: AlignmentType.CENTER,
+                            spacing: {
+                                after: 400
+                            }
+                        }),
+                        
+                        // 副标题
+                        new Paragraph({
+                            text: "亏本大甩卖！惊爆价9.9元！",
+                            alignment: AlignmentType.CENTER,
+                            color: "ff0000",
+                            bold: true,
+                            spacing: {
+                                after: 600
+                            }
+                        })
+                    ]
+                }]
+            });
+            
+            // 创建三个票根
+            for (let i = 0; i < 3; i++) {
+                // 创建票根表格
+                const ticketTable = new Table({
+                    width: {
+                        size: 100,
+                        type: docx.WidthType.PERCENTAGE
+                    },
+                    borders: {
+                        top: { style: BorderStyle.DASHED, size: 4, color: "ff6b00" },
+                        bottom: { style: BorderStyle.DASHED, size: 4, color: "ff6b00" },
+                        left: { style: BorderStyle.DASHED, size: 4, color: "ff6b00" },
+                        right: { style: BorderStyle.DASHED, size: 4, color: "ff6b00" }
+                    },
+                    rows: [
+                        // 标题行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        new Paragraph({
+                                            text: "黄睿涵色情演唱会",
+                                            alignment: AlignmentType.CENTER,
+                                            heading: HeadingLevel.HEADING_2
+                                        }),
+                                        new Paragraph({
+                                            text: "亏本大甩卖 VIP门票",
+                                            alignment: AlignmentType.CENTER,
+                                            color: "ff0000",
+                                            bold: true
+                                        })
+                                    ],
+                                    verticalAlign: VerticalAlign.CENTER,
+                                    shading: {
+                                        fill: "ffd700",
+                                        type: docx.ShadingType.CLEAR
+                                    }
+                                })
+                            ]
+                        }),
+                        
+                        // 内容行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        // 票价和时间信息
+                                        new Paragraph({
+                                            children: [
+                                                new TextRun({
+                                                    text: "惊爆价：",
+                                                    bold: true,
+                                                    color: "ff0000"
+                                                }),
+                                                new TextRun({
+                                                    text: "¥9.9",
+                                                    color: "ff0000",
+                                                    bold: true,
+                                                    size: 40
+                                                }),
+                                                new TextRun({
+                                                    text: "\t（原价：¥9999）",
+                                                    color: "666666",
+                                                    strike: true
+                                                })
+                                            ],
+                                            alignment: AlignmentType.CENTER,
+                                            spacing: {
+                                                after: 200
+                                            }
+                                        }),
+                                        
+                                        // 时间地点
+                                        new Paragraph({
+                                            text: "时间：2025年7月15日 20:00",
+                                            alignment: AlignmentType.CENTER,
+                                            bold: true,
+                                            spacing: {
+                                                after: 150
+                                            }
+                                        }),
+                                        new Paragraph({
+                                            text: "地点：星光大剧院·中央舞台",
+                                            alignment: AlignmentType.CENTER,
+                                            bold: true,
+                                            spacing: {
+                                                after: 300
+                                            }
+                                        }),
+                                        
+                                        // 座位信息
+                                        new Paragraph({
+                                            text: "座位：VIP区 第" + (i+1) + "排 1号",
+                                            alignment: AlignmentType.CENTER,
+                                            bold: true,
+                                            spacing: {
+                                                after: 300
+                                            }
+                                        }),
+                                        
+                                        // 分隔线
+                                        new Paragraph({
+                                            text: "——————————————————————",
+                                            alignment: AlignmentType.CENTER,
+                                            spacing: {
+                                                after: 300
+                                            }
+                                        }),
+                                        
+                                        // 特权说明
+                                        new Paragraph({
+                                            text: "VIP特权：",
+                                            alignment: AlignmentType.LEFT,
+                                            bold: true,
+                                            color: "ff0000",
+                                            spacing: {
+                                                after: 150
+                                            }
+                                        }),
+                                        
+                                        new Paragraph({
+                                            text: "• 获赠签名写真集（限前100名）",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "• 参与演出后VIP见面会",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "• 免费获得限量版纪念T恤",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "• VIP休息区免费餐饮",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        
+                                        // 使用说明标题
+                                        new Paragraph({
+                                            text: "使用说明：",
+                                            alignment: AlignmentType.LEFT,
+                                            bold: true,
+                                            color: "ff0000",
+                                            spacing: {
+                                                before: 300,
+                                                after: 150
+                                            }
+                                        }),
+                                        
+                                        // 使用说明内容
+                                        new Paragraph({
+                                            text: "1. 本门票为VIP电子凭证，请打印后使用",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "2. 入场需验证身份信息及二维码",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "3. 请于演出前1小时到达现场兑换特权",
+                                            alignment: AlignmentType.LEFT
+                                        }),
+                                        new Paragraph({
+                                            text: "4. 门票数量有限，售完即止",
+                                            alignment: AlignmentType.LEFT
+                                        })
+                                    ],
+                                    verticalAlign: VerticalAlign.CENTER,
+                                    margins: {
+                                        top: 200,
+                                        bottom: 200,
+                                        left: 200,
+                                        right: 200
+                                    }
+                                })
+                            ]
+                        }),
+                        
+                        // 裁剪提示行
+                        new TableRow({
+                            children: [
+                                new TableCell({
+                                    children: [
+                                        new Paragraph({
+                                            text: "请沿虚线裁剪 ↑",
+                                            alignment: AlignmentType.CENTER,
+                                            color: "ff6b00",
+                                            italics: true,
+                                            bold: true
+                                        })
+                                    ],
+                                    shading: {
+                                        fill: "fff8e1",
+                                        type: docx.ShadingType.CLEAR
+                                    }
+                                })
+                            ]
+                        })
+                    ]
+                });
+                
+                // 将票根添加到文档
+                doc.addSection({
+                    children: [ticketTable],
+                    properties: {}
+                });
+                
+                // 在票根之间添加间距（最后一个不添加）
+                if (i < 2) {
+                    doc.addSection({
+                        children: [
+                            new Paragraph({
+                                text: "",
+                                spacing: {
+                                    after: 600
+                                }
+                            })
+                        ],
+                        properties: {}
+                    });
+                }
+            }
+            
+            // 生成文档并下载
+            const blob = await docx.Packer.toBlob(doc);
+            saveAs(blob, "黄睿涵色情演唱会VIP门票.docx");
+        }
+    </script>
+
+</body></html>
